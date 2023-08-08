@@ -1,0 +1,13 @@
+#bgdiv {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas1 {
+    width: 800px;
+    height: 800px;
+    border: 1px solid black
+}
