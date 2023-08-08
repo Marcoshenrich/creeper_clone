@@ -24,7 +24,7 @@ class View {
         this.creeper.flood()
         for (let cell in this.grid.cells) {
             // this.grid.cells[cell].fillCellRandomly()
-            // this.grid.cells[cell].drawIds()
+            this.grid.cells[cell].drawIds()
             this.grid.cells[cell].drawCreeper()
 
         }

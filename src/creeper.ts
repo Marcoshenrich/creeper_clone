@@ -9,7 +9,7 @@ class Creeper {
     grid: Grid
     startingCell: Cell
 
-    floodRate: number = 1
+    floodRate: number = .1
 
     constructor(view: View, grid: Grid) {
         this.view = view
