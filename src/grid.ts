@@ -25,7 +25,7 @@ class Grid {
 
         for (let colHeight = 0; colHeight < this.view.canvas.height; colHeight += cellHeight) {
             for (let rowLen = 0; rowLen < this.view.canvas.width; rowLen += cellWidth) {
-                this.cells[`${rowCount},${colCount}`] = new Cell(cellId, cellHeight, rowLen, colHeight, this.view, this)
+                this.cells[`${rowCount},${colCount}`] = new Cell(cellId, cellHeight, rowCount, colCount, this.view, this)
                 cellId += 1
                 rowCount += 1
             }

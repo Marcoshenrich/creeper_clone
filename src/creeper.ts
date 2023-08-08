@@ -9,20 +9,23 @@ class Creeper {
     grid: Grid
     startingCell: Cell
 
+    floodRate: number = 1
+
     constructor(view: View, grid: Grid) {
         this.view = view
         this.grid = grid
         this.startingCell = this.findStartCell()
-        this.startingCell.fill = this.startingCell.maxfill
-        console.log(this.startingCell.fill)
+        this.startingCell.fill = 50
     }
 
     findStartCell(): Cell {
         Object.values(this.grid.cells).length
-        let coord = Math.floor(Math.sqrt(Object.values(this.grid.cells).length)/2)
-        console.log(this.grid.cells)
-        console.log(`${coord},${coord}`)
-        return this.grid.cells[`${coord},${coord}`]
+        let centerCoord = Math.floor(Math.sqrt(Object.values(this.grid.cells).length)/2)
+        return this.grid.cells[`${centerCoord},${centerCoord}`]
+    }
+
+    flood() {
+        this.startingCell.receiveCreeper(this.floodRate)
     }
 
 

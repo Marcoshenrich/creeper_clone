@@ -29,7 +29,27 @@ class Cell {
     }
 
 
+    receiveCreeper(amount: number) {
+        this.fill += amount
+        this.propogateCreeper()
+    }
 
+    propogateCreeper() {
+        if (this.fill < this.maxfill / 10 ) return
+        const deltas = [[0,1],[1,0],[0,-1],[-1,0]]
+
+        for (let delta of deltas) {
+            let newCellCoords = `${this.pos[0] + delta[0]},${this.pos[1] + delta[1]}`
+            console.log(this.grid.cells)
+            console.log(newCellCoords)
+            if (!this.grid.cells[newCellCoords]) continue
+            if (this.grid.cells[newCellCoords].fill >= this.fill) continue
+
+            let propogationRate = Math.floor(this.fill / 10)
+            this.fill -= propogationRate
+            this.grid.cells[newCellCoords].receiveCreeper(propogationRate)
+        }
+    }
 
 
     fillCellRandomly() {

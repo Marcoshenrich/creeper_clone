@@ -21,7 +21,7 @@ class View {
 
     animate() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
+        this.creeper.flood()
         for (let cell in this.grid.cells) {
             // this.grid.cells[cell].fillCellRandomly()
             // this.grid.cells[cell].drawIds()
