@@ -11,7 +11,7 @@ class Grid {
 
     constructor(view: View) { 
         this.view = view
-        this.partition = 10
+        this.partition = 100
         this.cells = {}
         this.defineCells()
     }
@@ -21,9 +21,9 @@ class Grid {
         let cellWidth = this.view.canvas.width / this.partition
         let cellId = 1
 
-        for (let rowLen = 0; rowLen < this.view.canvas.width; rowLen += cellWidth) {
-            for (let colHeight = 0; colHeight < this.view.canvas.height; colHeight += cellHeight) {
-                this.cells[`${rowLen},${colHeight}`] = new Cell(cellId, rowLen, colHeight, this.view)
+        for (let colHeight = 0; colHeight < this.view.canvas.height; colHeight += cellHeight) {
+            for (let rowLen = 0; rowLen < this.view.canvas.width; rowLen += cellWidth) {
+                this.cells[`${rowLen},${colHeight}`] = new Cell(cellId, cellHeight, rowLen, colHeight, this.view, this)
                 cellId += 1
             } 
         }

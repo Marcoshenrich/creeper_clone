@@ -21,11 +21,9 @@ class View {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         for (let cell in this.grid.cells) {
-            this.grid.cells[cell].draw()
+            // this.grid.cells[cell].fillCellRandomly()
+            // this.grid.cells[cell].drawIds()
         }
-
-        this.ctx.fillText("hello", 0, 0)
-
 
         requestAnimationFrame(this.animate.bind(this));
     }
