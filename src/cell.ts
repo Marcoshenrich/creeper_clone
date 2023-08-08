@@ -1,14 +1,18 @@
 import View from "./view"
 import Grid from "./grid"
+import Creeper from "./creeper"
 
 class Cell {
     id: number
     length: number
     pos: number[]
     view: View
-    debugFillValue:number
     grid: Grid
-    fill: number
+
+    debugFillValue: number = Math.floor(Math.random() * 255)
+    maxfill: number = 255
+    fill: number = 0
+
     
 
     constructor(id: number, length: number, rowPos: number, colPos: number, view: View, grid: Grid) {
@@ -17,15 +21,14 @@ class Cell {
         this.grid = grid
         this.length = length
         this.pos = [rowPos, colPos]
-        this.debugFillValue = Math.floor(Math.random() * 255)
-        this.fill = 0
     }
 
-    // draw() {
-    //     this.view.ctx.fillStyle = `rgba(75,0,0,1`;
-    //     this.view.ctx.font = '20px Arial';
-    //     this.view.ctx.fillText(String(this.id), this.pos[0], this.pos[1] + this.view.ctx.measureText(String(this.id)).fontBoundingBoxAscent)
-    // }
+    drawCreeper() {
+        this.view.ctx.fillStyle = `rgba(0,0,255,${this.fill/this.maxfill})`;
+        this.view.ctx.fillRect(this.pos[0], this.pos[1], this.length, this.length)
+    }
+
+
 
 
 

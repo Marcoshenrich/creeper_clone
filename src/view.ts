@@ -1,5 +1,5 @@
 import Grid from "./grid"
-
+import Creeper from "./creeper"
 
 class View {
     height: number
@@ -7,6 +7,7 @@ class View {
     canvas: HTMLCanvasElement
     ctx: CanvasRenderingContext2D
     grid: Grid
+    creeper: Creeper
 
     constructor(canvas: HTMLCanvasElement) {
         this.ctx = canvas.getContext('2d');
@@ -14,6 +15,7 @@ class View {
         this.canvas.width = 800
         this.canvas.height = 800
         this.grid = new Grid(this)
+        this.creeper = new Creeper(this, this.grid)
         this.animate();
     }
 
@@ -23,6 +25,8 @@ class View {
         for (let cell in this.grid.cells) {
             // this.grid.cells[cell].fillCellRandomly()
             // this.grid.cells[cell].drawIds()
+            this.grid.cells[cell].drawCreeper()
+
         }
 
         requestAnimationFrame(this.animate.bind(this));

@@ -13,16 +13,19 @@ class Creeper {
         this.view = view
         this.grid = grid
         this.startingCell = this.findStartCell()
+        this.startingCell.fill = this.startingCell.maxfill
+        console.log(this.startingCell.fill)
     }
 
     findStartCell(): Cell {
         Object.values(this.grid.cells).length
-        let coord = Math.floor(Object.values(this.grid.cells).length / 2)
+        let coord = Math.floor(Math.sqrt(Object.values(this.grid.cells).length)/2)
+        console.log(this.grid.cells)
+        console.log(`${coord},${coord}`)
         return this.grid.cells[`${coord},${coord}`]
     }
 
-    flood() {
-        this.startingCell.flood()
-    }
 
 }
+
+export default Creeper

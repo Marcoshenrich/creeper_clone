@@ -20,12 +20,17 @@ class Grid {
         let cellHeight = this.view.canvas.height / this.partition
         let cellWidth = this.view.canvas.width / this.partition
         let cellId = 1
+        let rowCount = 0
+        let colCount = 0
 
         for (let colHeight = 0; colHeight < this.view.canvas.height; colHeight += cellHeight) {
             for (let rowLen = 0; rowLen < this.view.canvas.width; rowLen += cellWidth) {
-                this.cells[`${rowLen},${colHeight}`] = new Cell(cellId, cellHeight, rowLen, colHeight, this.view, this)
+                this.cells[`${rowCount},${colCount}`] = new Cell(cellId, cellHeight, rowLen, colHeight, this.view, this)
                 cellId += 1
-            } 
+                rowCount += 1
+            }
+            rowCount = 0
+            colCount += 1
         }
 
     }
